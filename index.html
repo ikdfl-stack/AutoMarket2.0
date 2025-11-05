@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMarket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="logo">AutoMarket</div>
+        <div class="menu-toggle" id="menu-toggle">Menú &#9776;</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#sobre-nosotros">Quiénes somos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PORTADA -->
+    <section id="inicio" class="hero">
+        <img src="img/portada.jpg" alt="Portada Auto Market" class="hero-img">
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo">
+        <h2>Catálogo de vehículos</h2>
+        <div class="cards">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="img/BMWazul.jpg" alt="Vehículo 1">
+                <h3>Modelo A</h3>
+                <p>Precio: 30.000€</p>
+                <a href="#" class="btn-secondary">Ver más</a>
+            </div>
+            <!-- Card 2 -->
+              <div class="card">
+                <img src="img/renaultrojo.jpg" alt="Vehículo 3">
+                <h3>Modelo B</h3>
+                <p>Precio: 20.000€</p>
+                <a href="#" class="btn-secondary">Ver más</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="img/Toyotagris.jpg" alt="Vehículo 2">
+                <h3>Modelo C</h3>
+                <p>Precio: 25.000€</p>
+                <a href="#" class="btn-secondary">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="sobre-nosotros">
+        <h2>Quiénes somos</h2>
+        <p>Auto Market es una empresa especializada en la venta de vehículos y servicios asociados. Nuestro objetivo es ofrecer una experiencia de compra moderna, confiable y personalizada. 
+            Desde AM estamos comprometidos con un el desarrollo sostenible llevando a cabo diferentes proyectos sostenibles y solidarios.
+        </p>
+        <img src="img/Furgonetasolidaria.jpg" alt="Furgoneta AutoMarket" class="imagen-somos">
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit" class="btn-primary">Enviar</button>
+        </form>
+        <div class="info-contacto">
+            <p>Teléfono: +34 600 123 456</p>
+            <p>Email: info@automarket.com</p>
+        </div>
+    </section>
+<!-- MAPA DE UBICACIÓN -->
+<section id="ubicacion">
+    <h2>¿Dónde estamos?</h2>
+    <div class="mapa-container">
+        <iframe 
+            src="https://www.google.com/maps?q=Avenida%20de%20Andaluc%C3%ADa%2C%2018001%20Granada%2C%20Espa%C3%B1a&output=embed" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+    <footer>
+        <p>© 2025 Auto Market. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+<!-- 🔽 Modal de coches -->
+<div id="car-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <h2 id="car-title">Modelo A</h2>
+        <p><strong>Marca:</strong> BMW Serie 3</p>
+        <p><strong>Motor:</strong> Diesel</p>
+        <p><strong>Transmisión:</strong> Manual</p>
+        <p><strong>Colores disponibles:</strong> Azul, Gris, Negro</p>
+        <p><strong>Fecha de fabricación:</strong> 2025</p>
+
+        <!-- Galería con selector de color -->
+        <div class="gallery">
+            <img id="current-img" src="img/BMWazul.jpg" alt="Imagen coche">
+            <div class="color-selector" id="color-selector"></div>
+        </div>
+
+        <p class="contact-message">Para cualquier consulta, contacte con nosotros.</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('car-modal');
+    const closeBtn = document.querySelector('.close');
+    const currentImg = document.getElementById('current-img');
+
+    // 🔹 Asignación de imágenes y colores por coche
+    const carColors = {
+        "bmw": {
+            "azul": "img/BMWazul.jpg",
+            "gris": "img/BMWgris.jpg",
+            "negro": "img/BMWnegro.jpg"
+        },
+        "toyota": {
+            "blanco": "img/Toyotablanco.jpg",
+            "gris": "img/Toyotagris.jpg",
+            "rojo": "img/Toyotarojo.jpg"
+        },
+        "renault": {
+            "naranja": "img/Renaultnaranja.jpg",
+            "rojo": "img/Renaultrojo.jpg",
+            "rosa": "img/Renaultrosa.jpg",
+        }
+    }
+    let currentCar = "bmw";
+
+    // 🔹 Mostrar el modal con datos e imágenes
+    function openModal(carId, info) {
+        modal.style.display = "flex";
+        currentCar = carId;
+
+        // Actualizar datos
+        document.getElementById('car-title').innerText = info.modelo;
+        document.querySelector('#car-modal p:nth-of-type(1)').innerHTML = `<strong>Marca:</strong> ${info.marca}`;
+        document.querySelector('#car-modal p:nth-of-type(2)').innerHTML = `<strong>Motor:</strong> ${info.motor}`;
+        document.querySelector('#car-modal p:nth-of-type(3)').innerHTML = `<strong>Transmisión:</strong> ${info.transmision}`;
+        document.querySelector('#car-modal p:nth-of-type(4)').innerHTML = `<strong>Colores disponibles:</strong> ${info.colores}`;
+        document.querySelector('#car-modal p:nth-of-type(5)').innerHTML = `<strong>Fecha de fabricación:</strong> ${info.fecha}`;
+
+        // Imagen inicial
+        const firstColor = Object.keys(carColors[carId])[0];
+        currentImg.src = carColors[carId][firstColor];
+
+        // Botones de color
+        const selector = document.getElementById("color-selector");
+        selector.innerHTML = "";
+        Object.entries(carColors[carId]).forEach(([color, imgSrc]) => {
+            const btn = document.createElement("div");
+            btn.classList.add("color-btn");
+            btn.style.background = color;
+            btn.title = color.charAt(0).toUpperCase() + color.slice(1);
+
+            btn.addEventListener("click", () => {
+                currentImg.src = imgSrc;
+                document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+            });
+
+            selector.appendChild(btn);
+        });
+    }
+
+    // 🔹 Cerrar modal
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+
+    // 🔹 Botones "Ver más"
+    const buttons = document.querySelectorAll('.btn-secondary');
+    buttons.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const carsInfo = [
+                {marca:"BMW", modelo:"BMW Serie 3", motor:"Diesel", transmision:"Manual", colores:"Blue, Gris, Black", fecha:"2025"},
+                {marca:"Renault", modelo:"Renault Kadjar", motor:"Gasolina", transmision:"Automático", colores:"Naranja, Rojo, Rosa", fecha:"2024"},
+                {marca:"Toyota", modelo:"Toyota Corolla", motor:"Híbrido", transmision:"Manual", colores:"Blanco, Gris, Rojo", fecha:"2023"}
+            ];
+            const ids = ["bmw", "renault", "toyota"];
+            openModal(ids[index], carsInfo[index]);
+        });
+    });
+</script>
+</body>
+</html>

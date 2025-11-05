@@ -1,0 +1,312 @@
+
+/* === ESTILOS GENERALES === */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6fa;
+    color: #333;
+}
+
+/* === CABECERA === */
+header {
+    background-color: #2205a3;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00aaff;
+}
+
+/* === BOTÓN MENÚ MÓVIL === */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* === PORTADA === */
+.hero {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* === CATÁLOGO === */
+#catalogo {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #0077cc;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #005fa3;
+}
+
+/* === QUIÉNES SOMOS === */
+#sobre-nosotros {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+.imagen-somos {
+    display: block;
+    margin: 30px auto 0;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-somos:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* === CONTACTO === */
+#contacto {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contacto input, 
+#contacto textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #005fa3;
+}
+
+/* === MODAL DE COCHES === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    border-radius: 12px;
+    padding: 25px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+    color: #333;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.gallery {
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 350px;
+    object-fit: contain;
+}
+
+/* === SELECTOR DE COLOR === */
+.color-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: transform 0.2s;
+}
+
+.color-btn.active {
+    transform: scale(1.2);
+    border-color: #0077cc;
+}
+
+/* Colores visibles */
+.color-btn[title="Azul"] { background: blue; }
+.color-btn[title="Gris"] { background: gray; }
+.color-btn[title="Negro"] { background: black; }
+.color-btn[title="Blanco"] { background: white; border: 1px solid #ccc; }
+.color-btn[title="Rojo"] { background: red; }
+.color-btn[title="Naranja"] { background: orange; }
+.color-btn[title="Rosa"] { background: pink; }
+
+/* === FOOTER === */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+
+    nav.show ul {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+/* === MAPA UBICACIÓN === */
+#ubicacion {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+}
+
+#ubicacion h2 {
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.mapa-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.mapa-container iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: none;
+}
